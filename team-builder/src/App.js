@@ -1,12 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
-import Form from './Form.js';
-import teamMemberList from './list.js';
+import TeamMemberForm from './Form.js';
+
 
 function App() {
 
-  const [teamMember, setTeamMember] = useState(teamMembersList);
+  const teamMemberList =    {
+    id: 1,
+   name: 'mike mitchell',
+   email: 'this@that.com',
+   pass: 'pass',
+  
+}
+  const [teamMember, setTeamMember] = useState();
 
   const setNewValue = value => {
     const newMember = {
@@ -17,6 +24,7 @@ function App() {
     }
     setTeamMember([...teamMember, newMember]);
   }
+  
 
   // const submit = value => {
   //   setTeamMember([...teamMember]);
@@ -28,9 +36,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <teamMemberForm setNewValue={setNewValue}/>
-          <TeamMember teamMember={teamMember} />
-          <Team value ={teamMember}/>
+          <TeamMemberForm setNewValue={setNewValue} />
+          
+          
            
         </p>
        

@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from "react";
 
-function teamMemberForm(props) {
+
+
+
+ const TeamMemberForm = (props) => {
+
     const emptyTM = {
         name: '',
         email: '',
         pass: '',
-    };
+     };
+     
     const [member, setMember] = useState(emptyTM);
 
-    const dataChnage = e => {
+    function dataChange(e) {
         console.log('what is target.value', e);
         setMember({ ...member, [e.target.name]: e.target.value });
-
-    };
-
+    
+      };
+    
 
     const submitForm = (e) => {
-        e.preventDefault();
-        if (props.isEditing == false) {
-            const newMem = {
-                ...member,
-                id: Date.now()
-            };
-            props.addNewMem(newMem);
-            setMember(emptyTM);
+    e.preventDefault();
+    if (props.isEditing == false) {
+        const newMem = {
+            ...member,
+            id: Date.now()
+        };
+        props.addNewMem(newMem);
+        setMember(emptyTM);
         
         } else {
             props.users.map(currentValue => {
@@ -39,7 +44,7 @@ function teamMemberForm(props) {
             );
         }
         }
-};
+
 const [storedData, setStoredData] = useState(false);
 useEffect(() => {
     setStoredData(true);
@@ -52,24 +57,24 @@ return (
             name='name'
             placeholder='Name'
             value={member.name}
-            onChange={dataChnage}
+            onChange={dataChange}
         />
         <input
             type='text'
             name='email'
             placeholder='Website'
             value={member.email}
-            onChange={dataChnage}
+            onChange={dataChange}
         />
         <input
             type='text'
             name='pass'
             placeholder='Please Enter Your Password'
             value={member.pass}
-            onChange={dataChnage}
+            onChange={dataChange}
         />
         <button type="submit">Store Password</button>
     </form>
-);
+);};
 
-export default Form;
+export default TeamMemberForm;
