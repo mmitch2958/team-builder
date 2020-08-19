@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
-import Form from './Form.js'
-import teamMemberList from './list.js'
+import Form from './Form.js';
+import teamMemberList from './list.js';
 
 function App() {
 
