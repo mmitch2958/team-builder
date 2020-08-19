@@ -8,11 +8,15 @@ function teamMemberForm(props) {
     };
     const [member, setMember] = useState(emptyTM);
 
-    const dataChnage = event => {
-        setMember({ ...member, [event.target.name]: event.target.value });
+    const dataChnage = e => {
+        console.log('what is target.value', e);
+        setMember({ ...member, [e.target.name]: e.target.value });
+
     };
-    const subForm = event => {
-        event.prevEmpty();
+
+
+    const submitForm = (e) => {
+        e.preventDefault();
         if (props.isEditing == false) {
             const newMem = {
                 ...member,
@@ -46,20 +50,20 @@ return (
         <input
             type='text'
             name='name'
-            placeholder='Please Enter Your Name'
+            placeholder='Name'
             value={member.name}
             onChange={dataChnage}
         />
         <input
             type='text'
-            email='email'
-            placeholder='Please Enter Your Email'
+            name='email'
+            placeholder='Website'
             value={member.email}
             onChange={dataChnage}
         />
         <input
             type='text'
-            pass='password'
+            name='pass'
             placeholder='Please Enter Your Password'
             value={member.pass}
             onChange={dataChnage}
