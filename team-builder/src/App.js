@@ -17,7 +17,7 @@ function App() {
 
   const setNewValue = value => {
     const newMember = {
-      id: Date.now,
+      id: Date.now(),
       name: value.name,
       email: value.email,
       pass: value.pass,
@@ -36,9 +36,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <TeamMemberForm setNewValue={setNewValue} />
-          
-          
+          <TeamMemberForm setNewValue={setNewValue} />       
            
         </p>
        

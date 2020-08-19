@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
  const TeamMemberForm = (props) => {
 
     const emptyTM = {
+        id: '',
         name: '',
         email: '',
         pass: '',
@@ -21,34 +22,35 @@ import React, { useState, useEffect } from "react";
     
 
     const submitForm = (e) => {
-    e.preventDefault();
-    if (props.isEditing == false) {
+        e.preventDefault();
         const newMem = {
             ...member,
             id: Date.now()
-        };
-        props.addNewMem(newMem);
-        setMember(emptyTM);
+    // if (props.isEditing == false) {
         
-        } else {
-            props.users.map(currentValue => {
-                if (currentValue.id === member.id) {
-                    currentValue.name = member.name;
-                    currentValue.email = member.email;
-                    currentValue.pass = member.pass;
-                    props.setNewMember(member);
-                    setMember(emptyTM);
-                }
+    //     };
+        // setNewValue(newMem);
+        // setMember(emptyTM);
+        
+        // } else {
+        //     props.member.map(currentValue => {
+        //         if (currentValue.id === member.id) {
+        //             currentValue.name = member.name;
+        //             currentValue.email = member.email;
+        //             currentValue.pass = member.pass;
+        //             // props.setNewMember(member);
+        //             setMember(emptyTM);
+        //         }
 
-            }
-            );
+            // }
+            // );
         }
         }
 
-const [storedData, setStoredData] = useState(false);
-useEffect(() => {
-    setStoredData(true);
-}, []);
+        const [storedData, setStoredData] = useState(false);
+        useEffect(() => {
+            setStoredData(true);
+        }, []);
 
 return (
     <form onSubmit={submitForm}>
