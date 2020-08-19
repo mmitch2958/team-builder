@@ -6,14 +6,15 @@ import TeamMemberForm from './Form.js';
 
 function App() {
 
-  const teamMemberList =    {
+   
+  const [teamMember, setTeamMember] = useState([
+    {
     id: 1,
    name: 'mike mitchell',
    email: 'this@that.com',
    pass: 'pass',
-  
-}
-  const [teamMember, setTeamMember] = useState();
+    }
+  ]);
 
   const setNewValue = value => {
     const newMember = {
@@ -24,12 +25,7 @@ function App() {
     }
     setTeamMember([...teamMember, newMember]);
   }
-  
 
-  // const submit = value => {
-  //   setTeamMember([...teamMember]);
-  //   setIsEdit(false);
-  // }
  
   return (
     <div className="App">
@@ -37,9 +33,23 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           <TeamMemberForm setNewValue={setNewValue} />       
-           
+           {/* <teamMemberList /> */}
         </p>
-       
+       <div>
+          {teamMember.map(member=> {
+              return (
+            <div key = {member.id}> 
+            <h2>{member.name}</h2>
+            <p>{member.email}</p>
+            <p>{member.pass}</p>
+            </div>
+          
+              )
+          })
+          
+          }
+          
+       </div>
           Learn React
         
       </header>
